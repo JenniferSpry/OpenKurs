@@ -3,10 +3,10 @@ An early version of a free online course webapp in German
 If you speak English, you can learn nearly everything online. If you don't your choices are not quite as many and few of them are for free. Goal of this project is to create a platform for German speaking people to learn all sorts of things (maths, science, history, English and so on).
 
 So far:
--You can create an account and login
--if you do that the app will remember which course part you have looked at
--there can be admin accounts
--admins can create courses and course parts and order these
+- you can create an account and login
+- if you do that the app will remember which course part you have looked at
+- there can be admin accounts
+- admins can create courses and course parts and order these
 
 The backend is a ruby on rails application and the frontend is realized with AngularJS. The app also uses MathJax for proper display of everything mathematical and Cytoscape.js for graph visualization.
 
