@@ -1,0 +1,10 @@
+.done-icon {
+  position: absolute;
+  border-radius: 5px 0 5px 0;
+  background-color: $gray-light;
+  padding: 6px 12px 0 12px;
+}
+
+.done-true {
+  background-color: $brand-success;
+}

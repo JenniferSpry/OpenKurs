@@ -1,0 +1,22 @@
+@import 'variables';
+@import '../bower_components/bootstrap-sass-official/assets/stylesheets/_bootstrap.scss';
+@import 'bootswatch';
+@import 'graphs';
+@import 'course-content';
+@import 'spacing';
+
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body { 
+  padding-top: 30px; 
+}
+
+.panel-caption {
+  padding-top: 10px;
+  margin-bottom: 0;
+  font-style: italic;
+}

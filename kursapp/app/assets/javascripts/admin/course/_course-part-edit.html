@@ -1,0 +1,25 @@
+<div class="well">
+  <h3 view-title>Bearbeiten: {{partTitle}}</h3>
+  <form name="updateCoursepartForm" class="form-horizontal" novalidate>
+    <div class="form-group" ng-class="{ 'has-error' : updateCoursepartForm.title.$invalid && !updateCoursepartForm.title.$pristine }">
+      <label for="titleInput"  class="col-sm-2 control-label">Titel</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="titleInput" placeholder="Kursteiltitel" ng-model="coursepart.title" name="title" required ng-model-options="{updateOn: 'default blur', debounce:{default: 500, blur: 0}}" ng-maxlength=100>
+        <p ng-show="createCourseForm.title.$error.maxlength" class="help-block">Die maximale länge für Titel ist 100 Zeichen.</p>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="templateInput"  class="col-sm-2 control-label">Template</label>
+      <div class="col-sm-10">
+        <textarea class="form-control" id="templateInput" rows="20" ng-model="coursepart.template"></textarea>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <back-button></back-button>
+        <button type="submit" ng-disabled="updateCoursepartForm.$invalid" class="btn btn-primary" ng-click="updatePart(coursepart)">speichern</button>
+        <a ui-sref="kursteil({ id: coursepart.courseId, partId: coursepart.id })"><button class="btn btn-default pull-right">zum Kursteil</button></a>
+      </div>
+    </div> 
+  </form>
+</div>

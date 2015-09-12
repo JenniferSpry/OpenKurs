@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" ng-app="graphcoloingtests" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" ng-app="graphcoloingtests" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" ng-app="graphcoloingtests" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" ng-app="graphcoloingtests" class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Graphen Färbung Tests</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="css/style.css" rel="stylesheet" media="screen">
+</head>
+<body>
+
+<div class="container">
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+          <li ng-class="{'active': $state.includes('greedy')}"><a ui-sref="greedy">Greedy-Algorithmus</a></li>
+          <li ng-class="{'active': $state.includes('greedyslh')}"><a ui-sref="greedyslh">Greedy mit Smallest-Last-Heuristik</a></li>
+          <li ng-class="{'active': $state.includes('greedyenumeration')}"><a ui-sref="greedyenumeration">Greedy-Enumeration</a></li>
+          <li ng-class="{'active': $state.includes('naive')}"><a ui-sref="naive">Naives Färben</a></li>
+          <li ng-class="{'active': $state.includes('lawler')}"><a ui-sref="lawler">Lawlers Algorithmus</a></li>
+          <li ng-class="{'active': $state.includes('other')}"><a ui-sref="other">Sonstiges</a></li>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+
+  <!--[if lt IE 7]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+  <![endif]-->
+    <div ui-view></div>
+  </div> <!-- end container -->
+
+  <script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+  <!-- build:js js/assets.js -->
+  <!-- bower:js -->
+  <script src="bower_components/jquery/dist/jquery.js"></script>
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+  <script src="bower_components/angular-animate/angular-animate.js"></script>
+  <script src="bower_components/angular-scroll/angular-scroll.js"></script>
+  <script src="bower_components/cytoscape/dist/cytoscape.js"></script>
+  <script src="bower_components/underscore/underscore.js"></script>
+  <script src="bower_components/randomColor/randomColor.js"></script>
+
+  <!-- endbower -->
+
+  <!-- endbuild -->
+  <!-- <script src="bower_components/MathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+
+  <!-- build:js js/app.js -->
+  <script src="js/app.module.js"></script>
+  <script src="js/app.config.js"></script>
+  
+  <script src="js/libs/libs.js"></script>
+
+  <script src="js/directives/directives.module.js"></script>
+  <script src="js/directives/mathjaxBind.directive.js"></script>
+
+  <script src="js/exampleDirectives/exampleDirectives.module.js"></script>
+  <script src="js/exampleDirectives/detDetExample.directive.js"></script>
+  <script src="js/exampleDirectives/addAlgoExample.directive.js"></script>
+  <script src="js/exampleDirectives/euklidExample.directive.js"></script>
+
+  <script src="js/graphs/graphs.module.js"></script>
+  <script src="js/graphs/graph-helper.service.js"></script>
+  <script src="js/graphs/graph-creator/graph-creator.module.js"></script>
+  <script src="js/graphs/graph-creator/simple-graph-creator.service.js"></script>
+  <script src="js/graphs/graph-creator/graph-interpreter.service.js"></script>
+  <!-- <script src="js/graphs/graph-creator/complete-graph-creator.service.js"></script> -->
+
+  <script src="js/graphs/greedy/greedy.module.js"></script>
+  <script src="js/graphs/greedy/greedy.directive.js"></script>
+  <script src="js/graphs/greedy/greedy-coloured.directive.js"></script>
+  <script src="js/graphs/greedy/greedy-enumeration.directive.js"></script>
+  <script src="js/graphs/greedy/greedyslh.directive.js"></script>
+
+  <script src="js/graphs/naive/naive-color.module.js"></script>
+  <script src="js/graphs/naive/naive-color.directive.js"></script>
+
+  <script src="js/graphs/algoControls.directive.js"></script>
+  <script src="js/graphs/example-graph.service.js"></script>
+  <script src="js/graphs/simple-graph.directive.js"></script>
+
+  <script src="js/graphs/lawler/lawler.module.js"></script>
+  <script src="js/graphs/lawler/lawler.directive.js"></script>
+  <script src="js/graphs/lawler/lawler-step.directive.js"></script>
+  <script src="js/graphs/lawler/lawler-subgraph.directive.js"></script>
+
+  <!-- endbuild -->
+</body>
+</html>

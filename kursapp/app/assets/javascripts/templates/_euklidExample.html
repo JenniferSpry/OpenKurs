@@ -1,0 +1,71 @@
+<div class="panel panel-info">
+  <style>
+    .square {width: 20px; height: 20px; float:left; margin: 3px;}
+    .square-there {background-color: #2C3E50;}
+    .square-highlighted {background-color: #F39C12;}
+    .square-gone {background-color: #ddd;}
+  </style>
+  <div class="panel-heading">
+    <h3 class="panel-title">
+      <span class="glyphicon glyphicon-hand-right"></span>&nbsp;&nbsp;
+      Ausprobieren: Der Euklidische Algorithmus für den größten gemeinsamen Teiler
+    </h3>
+  </div>
+  <div class="panel-body">
+    <p>Ziehe die kleinere Zahl von der Größeren ab bis die kleinere Zahl die größere ohne Rest teilt.</p>
+    <form name="form" class="form-horizontal" novalidate>
+      <label class="col-sm-2 control-label" for="NumberOne">Zahl 1</label>
+      <div class="col-sm-4">
+        <div class="form-group" ng-class="{'has-error': !form.number1.$valid}">
+          <input  
+            ng-model="number1" 
+            id="NumberOne"
+            class="form-control" 
+            type="number"
+            name="number1"
+            required 
+            min="1" 
+            max="60">
+          <span class="help-block" ng-if="!form.number1.$valid">Bitte gib eine Zahl zwischen 1 und 60 ein.</span>
+        </div>
+      </div>
+      <label class="col-sm-2 control-label" for="NumberTwo">Zahl 2</label>
+      <div class="col-sm-4">
+        <div class="form-group" ng-class="{'has-error': !form.number2.$valid}">
+          <input  
+            ng-model="number2" 
+            id="NumberTwo"
+            class="form-control" 
+            type="number"
+            name="number2"
+            required 
+            min="1" 
+            max="60">
+          <span class="help-block" ng-if="!form.number2.$valid">Bitte gib eine Zahl zwischen 1 und 60 ein.</span>
+        </div>
+      </div>
+    </form>
+    <div class="row">
+      <div class="col-sm-6">
+        <p class="clearfix">
+          <span class="square" ng-repeat="part in number1Parts"  ng-class="{'square-highlighted' : part.highlighted, 'square-there': !part.gone, 'square-gone': part.gone}"></span>
+        </p>
+      </div>
+      <div class="col-sm-6">
+        <p class="clearfix">
+          <span class="square" ng-repeat="part in number2Parts" ng-class="{'square-highlighted' : part.highlighted, 'square-there': !part.gone, 'square-gone': part.gone}"></span>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <p class="lead" ng-if="result">Der kleinste gemeinsame Teiler ist: {{result}}</p>
+      </div>
+    </div>   
+    <div class="row">
+      <div class="col-sm-12">
+        <button class="btn btn-default" ng-disabled="isRunning" ng-click="start()" >Berechnen</button>
+      </div>
+    </div>   
+  </div>
+</div>

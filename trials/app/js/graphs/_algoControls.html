@@ -1,0 +1,22 @@
+<div class="btn-toolbar algo-controls" role="toolbar">
+  <div class="btn-group" role="group">
+    <button type="button" class="btn btn-sm btn-default" ng-disabled="(algorithm.isDone || algorithm.isRunning)" ng-click="run()">Durchlaufen</button>
+    <button type="button" class="btn btn-sm btn-info" ng-disabled="(algorithm.isDone || algorithm.isRunning)" ng-click="run()"><span class="glyphicon glyphicon-play"></span></button>
+  </div>
+  <div class="btn-group" role="group">
+    <button type="button" class="btn btn-sm btn-default" ng-disabled="(algorithm.isDone || !algorithm.isRunning)" ng-click="pause()">Pause</button>
+    <button type="button" class="btn btn-sm btn-info" ng-disabled="(algorithm.isDone || !algorithm.isRunning)" ng-click="pause()"><span class="glyphicon glyphicon-pause"></span></button>
+  </div>
+  <div class="btn-group" role="group">
+    <button type="button" class="btn btn-sm btn-default" ng-disabled="(algorithm.isDone || algorithm.isRunning)" ng-click="step()">Schritt weiter</button>
+    <button type="button" class="btn btn-sm btn-info" ng-disabled="(algorithm.isDone || algorithm.isRunning)" ng-click="step()"><span class="glyphicon glyphicon-play"></span></button>
+  </div>
+  <div class="btn-group" role="group">
+    <button type="button" class="btn btn-sm btn-default" ng-click="reset()">zurücksetzen</button>
+    <button type="button" class="btn btn-sm btn-danger" ng-click="reset()"><span class="glyphicon glyphicon-repeat"></span></button>
+  </div>
+  <div class="btn-group" role="group">
+    <button type="button" class="btn btn-sm btn-default" ng-click="renew()">neuen Graphen</button>
+    <button type="button" class="btn btn-sm btn-danger" ng-click="renew()"><span class="glyphicon glyphicon-repeat"></span></button>
+  </div>
+</div>

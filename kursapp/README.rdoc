@@ -1,0 +1,17 @@
+== README
+
+System Vorraussetzungen:
+- Ruby 2.1.5
+- RubyGems package manager
+- Rails 4.2.1
+- Bundler 1.9.4
+- RAKE – Ruby Make 10.4.2
+
+Installation:
+$ bundle install
+$ rake db:migrate db:seed db:test:prepare
+
+Um den Testserver zum laufen zu bringen:
+$ rails s
+
+Für die Views wird AngularJS verwendet. Es gibt nur einen Rails-View, zu finden unter "app/views/static_pages". Die eigentlichen Views finden sich unter "app/assets/javascript" zusammen mit dem Angular-Kern der Anwendung.

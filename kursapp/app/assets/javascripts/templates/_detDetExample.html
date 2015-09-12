@@ -1,0 +1,30 @@
+<div class="panel panel-info">
+  <style>
+  .hole {width: 20px; height: 20px; float:left; background-color: #f5f5f5; margin: 3px; border-radius: 50%;}
+  .hole-drilled {background-color: #2C3E50;}
+  </style>
+  <div class="panel-heading">
+    <h3 class="panel-title">
+      <span class="glyphicon glyphicon-hand-right"></span>&nbsp;&nbsp;
+      Produktion löchriger Platten mit zwei Algorithmen
+    </h3>
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-sm-6">
+        <p class="clearfix">
+          <span class="hole" ng-repeat="hole in holes" ng-class="{'hole-drilled' : hole.drilled}"></span>
+        </p>
+        <p class="panel-caption">Algorithmus 1</p>
+      </div>
+      <div class="col-sm-6">
+        <p class="clearfix">
+          <span class="hole" ng-repeat="hole in holes2" ng-class="{'hole-drilled' : hole.drilled}"></span>
+        </p>
+        <p class="panel-caption">Algorithmus 2</p>
+      </div>
+    </div>
+    <button class="btn btn-primary" ng-if="!running" ng-click="start()">Produktion starten</button>
+    <button class="btn btn-primary" ng-if="running" ng-click="stop()">Produktion anhalten</button>
+  </div>
+</div>

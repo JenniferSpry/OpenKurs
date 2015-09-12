@@ -1,0 +1,62 @@
+<div id="greedy" class="panel panel-info">
+  <style>
+    .highlight {font-weight: bold;}
+    ol {padding-left: 20px;}
+  </style>
+  <div class="panel-heading">
+    <h3 class="panel-title">
+      <span class="glyphicon glyphicon-hand-right"></span>&nbsp;&nbsp;
+      Ausprobieren: minimales Färben mit Greedy-Enumeration
+    </h3>
+  </div>
+  <div class="panel-body">
+    <ol>
+      <li ng-class="{'highlight' : (algo.stepNumber === 1)}">Ermittel alle möglichen Eckenreihenfolgen.</li>
+      <li ng-class="{'highlight' : (algo.stepNumber === 2)}">Wende die Greedy-Methode der Färbung auf jede Reihenfolge an und merke dir dabei die Färbung mit der kleinsten Farbanzahl.</li>
+    </ol>
+
+    <algo-controls algorithm="algo" speed="100"></algo-controls>
+
+    <form class="form-inline add-margin-bottom-20" name="form" novalidate>
+      <div class="form-group" ng-class="{'has-error': (form.eckenAnzahl.$error.min || form.eckenAnzahl.$error.max)}" >
+        <div class="input-group input-group-sm" >
+          <input  
+            ng-model="numNodes" 
+            class="form-control" 
+            placeholder="Ecken"
+            type="number"
+            name="eckenAnzahl"
+            required 
+            min="1" 
+            max="10">
+          <span class="input-group-btn">
+            <button class="btn btn-default" ng-disabled="(isDone || algo.isRunning)" type="button" ng-click="restart()">mit {{numNodes}} Ecken neu anfangen</button>
+          </span>
+        </div>
+        <span class="text-danger"ng-show="form.eckenAnzahl.$error.min || form.eckenAnzahl.$error.max">Die Zahl muss zwischen 1 und 10 liegen.</span>
+        <span class="text-danger" ng-show="form.eckenAnzahl.$error.number || form.eckenAnzahl.$error.required">Bitte gib eine Zahl ein.</span>
+      </div>
+    </form>
+
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-sm-6">
+            <p>Anzahl der Reihenfolgen: {{ nodeOrders.length }}</p>
+            <p ng-if="algo.stepNumber === 2">Überprüfe: Nr. {{ testCount + 1 }}   ({{ getNOString(nodeOrders[testCount]) }})</p>
+          </div>
+          <div class="col-sm-6">
+            <p>Kleinste Färbungszahl gefunden: {{ smallestColorNumer }}</p>
+          </div>
+        </div>
+        <div class="row" ng-if="algo.stepNumber === 3">
+          <div class="col-sm-12">
+            <p class="lead">Eine der minimalen Färbungen:</p>
+          </div>
+        </div>
+        <div id="cy" class="cytoscape-md"></div>
+      </div>
+    </div>
+
+  </div>
+</div>

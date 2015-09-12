@@ -1,0 +1,38 @@
+<view-title>Kurse</view-title>
+
+<div class="container">
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="page-header">
+      <h1 ng-if="!signedIn()">Algorithmen für Graphenfärbungsprobleme</h1>
+      <course-state-panel ng-if="signedIn()" percent="percent"></course-state-panel>
+    </div>
+  </div>
+</div>
+
+<div ng-if="courses.length" class="row course-row" ng-repeat="course in courses | orderBy:'order'">
+  <div class="col-sm-3">
+    <div class="all-courses-course">
+      <div class="all-courses-image-wrapper">
+      <div class="all-courses-wrapper-content">
+          <done-icon done="course.doneByUser" num="course.order"></done-icon>
+          <a ui-sref="kursteil({ id: course.id, partId: course.courseparts[0].id })">
+            <img ng-if="course.image_name" src="images/courses/{{ course.image_name }}">
+            <img ng-if="!course.image_name" src="images/courses/default.jpg">
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-9">
+      <div>
+        <h3><a ui-sref="kursteil({ id: course.id, partId: course.courseparts[0].id })">{{ course.title }}</a></h3>
+        <p class="lead">{{ course.description }}</p>
+      </div>
+  </div>
+</div>
+
+<p ng-if="!courses.length">Es wurden keine Kurse gefunden</p>
+
+</div>

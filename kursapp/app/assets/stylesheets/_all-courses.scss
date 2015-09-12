@@ -1,0 +1,32 @@
+@mixin box-shadow {
+  -webkit-box-shadow: rgba(0, 0, 0, 0.09) 0 2px 0;
+  -moz-box-shadow: rgba(0, 0, 0, 0.09) 0 2px 0;
+  box-shadow: rgba(0, 0, 0, 0.09) 0 2px 0;
+}
+
+.course-row {
+  margin-bottom: 15px;
+}
+
+.all-courses-course {
+  border-radius: 5px;
+    
+  .all-courses-image-wrapper {
+    max-width: 100%;
+    border-radius: 5px 5px 5px 5px;
+    overflow: hidden;
+  }
+  .all-courses-wrapper-content {
+    
+    -webkit-transition: all .3s ease-out;
+    -moz-transition: all .3s ease-out;
+    -o-transition: all .3s ease-out;
+    transition: all .3s ease-out;
+    &:hover {
+      transform: scale(1.075);
+    }
+  }
+  img {
+    width: 100%;
+  }
+}

@@ -1,0 +1,53 @@
+<div class="row">
+  <div class="col-sm-6">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <simple-graph num-nodes="5" cy-name="'simple'" class="cytoscape-sm"
+          nodes="['a','b','c','d','e']" edges="[['a','b'], ['a','c'], ['b', 'e'],['e','d'],['a','e']]"></simple-graph>
+        <p class="panel-caption">Einfach ungerichtet</p>
+      </div>
+    </div>
+  </div>
+   <div class="col-sm-6">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <simple-graph num-nodes="5" cy-name="'directed'" class="cytoscape-sm"
+          nodes="['a','b','c','d','e']" edges="[['a','b'], ['a','c'], ['b', 'e'],['e','d'],['a','e'],['e','a'],['b','a'],['d','b']]" directed=true></simple-graph>
+        <p class="panel-caption">Einfach gerichtet</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-6">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <simple-graph num-nodes="5" cy-name="'multi'" class="cytoscape-sm"
+          nodes="['a','b','c','d','e']" edges="[['a','b'], ['a','c'], ['b', 'e'],['e','d'],['a','e'],['a','e'],['e','a'],['c','c']]"></simple-graph>
+        <p class="panel-caption">Multigraph ungerichtet</p>
+      </div>
+    </div>
+  </div>
+   <div class="col-sm-6">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <simple-graph num-nodes="5" cy-name="'multi-directed'" class="cytoscape-sm"
+          nodes="['a','b','c','d','e']" edges="[['a','b'], ['a','c'], ['b', 'e'],['e','d'],['a','e'],['a','e'],['e','a'],['c','c']]" directed=true></simple-graph>
+        <p class="panel-caption">Multigraph gerichtet</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-6">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <simple-graph cy-name="'staedte'" class="cytoscape-sm"
+          nodes="['Hamburg','Berlin','Bremen','München','Frankfurt', 'Dresden']" edges="[['Hamburg','Bremen', 1], ['Hamburg','Berlin', 2], ['Berlin', 'Bremen', 3], ['Berlin', 'Dresden', 2],['Dresden','Frankfurt', 5], ['Frankfurt', 'München', 3], ['Hamburg', 'Frankfurt', 5], ['Dresden', 'München', 4], ['Berlin', 'Frankfurt', 4], ['Bremen', 'Frankfurt', 4]]"></simple-graph>
+        <p class="panel-caption">Gewichtet ungerichtet</p>
+      </div>
+    </div>
+  </div>
+</div>

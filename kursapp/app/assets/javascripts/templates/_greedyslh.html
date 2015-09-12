@@ -1,0 +1,76 @@
+<div id="greedy" class="panel panel-info">
+  <style>
+    #colors {
+      margin-bottom: 0 !important;
+      padding-top: 0;
+      padding-left: 10px;
+      margin: 0;
+      height: 0;
+    }
+    #colors li {
+      display: inline-block;
+      position: relative;
+      margin-right: 5px;
+      margin-top: 15px;
+      width: 32px; 
+      height: 43px;
+    }
+    .highlight {font-weight: bold;}
+    #colors p {
+      margin-top: 15px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+      width: 32px;
+      text-align: center;
+    }
+    .drop {
+      width: 32px; 
+      height: 43px;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    ol {padding-left: 20px;}
+    ul {padding-left: 20px;}
+  </style>
+  <div class="panel-heading">
+    <h3 class="panel-title">
+      <span class="glyphicon glyphicon-hand-right"></span>&nbsp;&nbsp;
+      Ausprobieren: Greedy Algorithmus mit Smallest-Last-Heuristik zum Färben eines Graphen
+    </h3>
+  </div>
+  <div class="panel-body">
+    <ol>
+      <li ng-class="{'highlight' : (algo.stepNumber >= 1)}">Bis alle Ecken entfernt wurden, tue folgendes:</li>
+      <ul>
+        <li ng-class="{'highlight' : (algo.stepNumber === 1)}">Finde eine Ecke mit dem kleinsten Grad</li>
+        <li ng-class="{'highlight' : (algo.stepNumber === 2)}">Entferne diese Ecke</li>
+      </ul>
+      <li ng-class="{'highlight' : (algo.stepNumber === 3)}">Füge alle Ecken wieder zum Graphen hinzu</li>
+      <li ng-class="{'highlight' : (algo.stepNumber >= 4)}">In der Reihenfolge in der die Ecken zuvor entfernt wurden, tue für jede Ecke folgendes:</li>
+      <ul>
+        <li ng-class="{'highlight' : (algo.stepNumber === 4)}">Betrachte die Farben der Nachbarn</li>
+        <li ng-class="{'highlight' : (algo.stepNumber === 5)}">Färbe die Ecke in der kleinsten Farbe, die bei den Nachbarn nicht vorkommt</li>
+      </ul>
+    </ol>
+
+    <algo-controls algorithm="algo" speed="400"></algo-controls>
+
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <ul id="colors">
+          <li ng-repeat="col in usedColors">
+            <p>{{ ($index + 1) }}</p>
+            <svg class="drop">
+              <path fill="{{ col }}" d="M32,26.772C32,35.735,24.836,43,16,43S0,35.735,0,26.772C0,17.81,16,0,16,0S32,17.81,32,26.772z"/>
+            </svg>
+          </li>
+        </ul>
+        <div id="cy" class="cytoscape-md"></div>
+      </div>
+    </div>
+
+  </div>
+</div>

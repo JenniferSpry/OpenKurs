@@ -1,0 +1,21 @@
+{
+  "name": "dsl-generated dependencies",
+  "dependencies": {
+    "angular": "latest",
+    "bootstrap-sass": "latest",
+    "angular-ui-router": "latest",
+    "angular-loading-bar": "latest",
+    "angular-sanitize": "latest",
+    "angular-animate": "latest",
+    "angular-devise": "latest",
+    "angularjs-toaster": "latest",
+    "angularjs-viewhead": "latest",
+    "bootstrap-ui": "latest",
+    "headroom.js": "latest",
+    "cytoscape": "latest",
+    "underscore": "latest",
+    "randomColor": "latest",
+    "MathJax": "latest",
+    "angular-scroll": "latest"
+  }
+}

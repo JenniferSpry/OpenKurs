@@ -1,0 +1,56 @@
+<div class="container-fluid add-margin-top-20">
+
+<div class="row" id="course-header">
+  <!-- menu visible -->
+  <div ng-if="menuVisible" class="col-md-3">
+    <button ng-click="hideMenu()" class="btn btn-sm btn-default pull-right">
+      <span class="glyphicon glyphicon-triangle-left" aria-hidden="true"></span>
+    </button>
+  </div>
+  <div ng-if="menuVisible" class="col-md-9">
+    <h2>{{currentPartTitle}}</h2>
+  </div>
+  <!-- menu not visibe -->
+  <div ng-if="!menuVisible" class="col-md-12">
+    <button ng-click="showMenu()"  class="btn btn-sm btn-default pull-left course-btn-right">
+      <span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span>
+    </button>
+    <h2>{{currentPartTitle}}</h2>
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="col-md-3" ng-show="menuVisible">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title" view-title>{{ course.title }}</h3>
+      </div>
+      <div class="panel-body" ng-if="!course.courseparts.length">
+        <p>Dieser Kurs hat noch keine Inhalte.</p>
+      </div>
+      <ul class="list-group" ng-if="course.courseparts.length">
+        <li  class="list-group-item" ng-repeat="part in course.courseparts | orderBy: 'order'">
+          <span class="course-list-info" ng-if="userLoggedIn">
+            <span class="glyphicon glyphicon-ok pull-right" aria-hidden="true" ng-if="part.doneByUser"></span>
+          </span>
+          <a href ng-click="goToPart(part)" ng-if="currentPartId !== part.id">{{ part.title }}</a>
+          <span ng-if="currentPartId === part.id">{{ part.title }}</span>
+        </li>
+      </ul>
+    </div>
+    <p><a ui-sref="kursAll"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Algorithmen für Graphenfärbungsprobleme</a></p>
+  </div>
+
+  <div ng-class="{'col-md-9' : menuVisible, 'col-md-12' : !menuVisible}" id="course-content">
+    <ng-include src="currentTemplate"></ng-include>
+  </div>
+</div>
+
+<div class="row" ng-if="nextPart">
+  <div class="col-sm-12">
+    <a href ng-click="goToPart(nextPart)" class="btn btn-primary pull-right">Weiter</a>
+  </div>
+</div>
+
+</div>

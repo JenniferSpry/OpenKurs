@@ -1,0 +1,66 @@
+<div class="panel panel-default" ng-class="{'setActive' : (set.stage > 0) && (set.stage < 5)}">
+<style type="text/css">
+  .lawler-head {font-weight: bold; border-bottom: 1px solid #666;}
+</style>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-sm-3">
+        <p class="lawler-head">
+          Teilgraph <span mathjax-bind="toSubgraphString(set.arr)"></span>
+        </p>
+        <lawler-subgraph cy-name="'SET-' + set.name" class="subset" graph="graph" show="nodes" highlight="set.arr"></lawler-subgraph>
+      </div>
+      <div class="col-sm-3">
+        <p class="lawler-head">
+          Max. unabhängige Mengen
+        </p>
+        <div ng-if="set.stage >= 1">
+          <div class="row" ng-repeat="is in independentSets">
+            <div class="col-sm-8">
+              <lawler-subgraph cy-name="'MuM-' + set.name + '-' + toFlatString(is)" class="subset-sm" graph="graph" show="set.arr" highlight="is" >
+              </lawler-subgraph>
+            </div>
+            <div class="col-sm-4"><span mathjax-bind="toSetString(is)"></span></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <p class="lawler-head">
+          Komplement(e)
+        </p>
+        <div ng-if="set.stage >= 2">
+          <div class="row" ng-repeat="kom in komplements">
+            <div class="col-sm-8">
+              <lawler-subgraph cy-name="'KOM-' + set.name + '-' + toFlatString(kom.arr)" class="subset-sm" graph="graph" show="set.arr" highlight="kom.arr">
+              </lawler-subgraph>
+            </div>
+            <div class="col-sm-4"><span mathjax-bind="toSetString(kom.arr)"></span></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <p class="lawler-head">
+          Bereits berechnet
+        </p>
+        <div ng-if="set.stage >= 3">
+          <p ng-repeat="kom in komplements">
+           <span mathjax-bind="'\\chi(' + toSubgraphString(kom.arr) + ') = ' + kom.colorNumber"></span>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="row add-margin-top-20 ">
+      <div class="col-sm-offset-3 col-sm-8">
+        <p class="lead" ng-if="set.stage >= 4">
+          <span mathjax-bind="'\\chi(' + toSubgraphString(set.arr) + ') = 1 + min(' + getKomplementsString() + ')'"></span>
+        </p>
+        <p class="lead" ng-if="set.stage >= 4">
+          <span mathjax-bind="'\\chi(' + toSubgraphString(set.arr) + ') = ' + set.colorNumber"></span>
+        </p>
+      </div>
+      <div class="col-sm-1">
+        <button ng-if="(set.stage > 0) && (set.stage < 5)" class="btn btn-default pull-right" ng-click="onNext()">Weiter</button>
+      </div>
+    </div>
+  </div>
+</div>

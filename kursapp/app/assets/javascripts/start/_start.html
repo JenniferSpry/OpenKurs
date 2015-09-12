@@ -1,0 +1,50 @@
+<view-title>Startseite</view-title>
+
+<div class="jumbotron start-page">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-9">
+        <h1>OpenKurs</h1>
+        <p class="lead">
+          OpenKurs soll eines Tages eine umfangreiche, kostenfreie und deutschsprachige Onlinekurs-Plattform werden. Im Rahmen einer Bachelorarbeit wird hier als erster Schritt zu diesem Ziel ein erster Kurs präsentiert. Schau ihn dir an, lerne etwas zu Algorithmen, Graphen und Färbungen.
+        </p>
+      </div>
+      <div class="col-sm-3 text-center">
+        <!-- <div class="logoWrapper"> -->
+          <img class="owlLogoHome" src="images/OwlLogo.svg">
+        <!-- </div> -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container" ng-if="!signedIn()">
+  <div class="row">
+    <div class="col-sm-12">
+      <h1>Ein erster Onlinekurs:</h1>
+      <h1 class="text-success remove-margin-top add-margin-bottom-30">Algorithmen für Graphenfärbungsprobleme</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6">
+      <greedy-coloured></greedy-coloured>
+    </div>
+    <div class="col-sm-6">
+      <p  class="lead">
+        Unsere Kurse sollen eines Tages Videos und Übungsaufgaben enthalten. Uns ist aber auch wichtig, dass die Inhalte die über Text vermittelt werden interaktiv und abwechslungsreich sind. In diesem ersten Kurs zeigen wir, wie so ein Kurs aussehen kann.</p>
+      <p>
+        <a class="btn btn-success btn-lg" ui-sref="register" role="button">registrieren</a>
+        <a class="btn btn-primary btn-lg" ui-sref="kursAll" role="button">ausprobieren</a>
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="container" ng-if="signedIn()">
+  <div class="row">
+    <div class="col-sm-12">
+      <h2>Willkommen zurück <span class="text-success">{{user.username}}</span>!</h2>
+      <course-state-panel percent="percent"></course-state-panel>
+    </div>
+  </div>
+</div>

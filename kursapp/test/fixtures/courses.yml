@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+algebra:
+  id: 1
+  title: Algebra
+  user_id: 1000
+
+calculus:
+  id: 2
+  title: MyString
+  user_id: 1000

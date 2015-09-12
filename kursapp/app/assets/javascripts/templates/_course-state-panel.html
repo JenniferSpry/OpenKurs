@@ -1,0 +1,11 @@
+<div class="panel panel-default course-state-panel">
+  <div class="panel-body center-text">
+    <h3>Algorithmen für Graphenfärbungsprobleme</h3>
+    <h1>{{percent}} %</h1>
+    <div class="progress progress-striped active">
+      <div class="progress-bar" ng-style="{width: percent + '%'}"></div>
+    </div>
+    <a ng-if="showNext && percent > 0" class="btn btn-success btn-lg" ui-sref="kursAll" role="button">fortsetzen</a>
+    <a ng-if="showNext && percent===0 " class="btn btn-success btn-lg" ui-sref="kursAll" role="button">Kurs starten!</a>
+  </div>
+</div>

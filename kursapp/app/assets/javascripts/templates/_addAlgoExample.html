@@ -1,0 +1,82 @@
+<div class="panel panel-info">
+  <style>
+
+  </style>
+  <div class="panel-heading">
+    <h3 class="panel-title">
+      <span class="glyphicon glyphicon-hand-right"></span>&nbsp;&nbsp;
+      Ausprobieren: Algorithmus zum schriftlichen Addieren zweier Zahlen
+    </h3>
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-sm-4">
+        <form name="form" novalidate>
+          <div class="form-group" ng-class="{'has-error': !form.number1.$valid}">
+            <label for="NumberOne">Zahl 1</label>
+            <input  
+              ng-model="number1" 
+              id="NumberOne"
+              class="form-control" 
+              type="number"
+              name="number1"
+              required 
+              min="1" 
+              max="1000000">
+            <span class="help-block" ng-if="!form.number1.$valid">Bitte gib eine Zahl zwischen 1 und 1000000 ein.</span>
+          </div>
+          <div class="form-group" ng-class="{'has-error': !form.number2.$valid}">
+            <label for="NumberTwo">Zahl 2</label>
+            <input  
+              ng-model="number2" 
+              id="NumberTwo"
+              class="form-control" 
+              type="number"
+              name="number2"
+              required 
+              min="1" 
+              max="1000000">
+            <span class="help-block" ng-if="!form.number2.$valid">Bitte gib eine Zahl zwischen 1 und 1000000 ein.</span>
+          </div>
+          <button type="submit" class="btn btn-default" ng-click="calc()">Berechnung durchführen</button>
+        </form>
+      </div>
+      <div class="col-sm-8">
+        <ol>
+          <li>Schreibe die zu addierenden Zahlen rechtsbündig untereinander.</li>
+          <li>Für jede Spalte, angefangen von rechts, tue folgendes:</li>
+            <ol>
+              <li>Zähle die Zahlen zusammen</li>
+              <li>Trage den Einer in die Ergebniszeile</li>
+              <li>Gibt es einen Übertrag?</li>
+                <ul>
+                  <li>Ja: Trage den Übertrag in die nächste Spalte</li>
+                </ul>
+            </ol>
+        </ol>
+
+        <table class="table table-bordered" style="text-align:center;" ng-if="calculated">
+          <tbody> 
+            <tr>
+              <th>Zahl 1</th>
+              <td ng-repeat="num in displayNumber1 track by $index">{{num}}</td>
+            </tr>
+            <tr>
+              <th>Zahl 2</th>
+              <td ng-repeat="num in displayNumber2 track by $index">{{num}}</td>
+            </tr>
+            <tr>
+              <th>Übertrag</th>
+              <td ng-repeat="num in displayOverflow track by $index"><span ng-if="num > 0">{{num}}</span></td>
+            </tr>
+            <tr>
+              <th>Ergebnis</th>
+              <th style="text-align: center" ng-repeat="num in displayResult track by $index">{{num}}</th>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+    </div>
+  </div>
+</div>

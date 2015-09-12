@@ -1,0 +1,97 @@
+<div class="row">
+  <div class="col-md-12">
+    <h3 view-title>Bearbeiten: {{courseTitle}}</h3>
+
+    <div class="well">
+      <form class="form-horizontal" name="updateCourseForm" novalidate>
+        <div class="form-group" ng-class="{ 'has-error' : updateCourseForm.title.$invalid && !updateCourseForm.title.$pristine }">
+          <label for="InputCourseName" class="col-sm-2 control-label">Name</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" name="title" id="InputCourseName" placeholder="Kurs Name" ng-model="course.title" required ng-model-options="{updateOn: 'default blur', debounce:{default: 500, blur: 0}}" ng-maxlength=100>
+            <p ng-show="updateCourseForm.title.$error.maxlength" class="help-block">Die maximale länge für Titel ist 100 Zeichen.</p>
+          </div>
+        </div>
+        <div class="form-group" ng-class="{ 'has-error' : updateCourseForm.imagename.$invalid && !updateCourseForm.imagename.$pristine }">
+          <label for="InputCourseImageFileName" class="col-sm-2 control-label">Bild Dateiname</label>
+          <div class="col-sm-10">
+            <input type="text" name="imagename" class="form-control" id="InputCourseImageFileName" placeholder="bild.jpg" ng-model="course.image_name" valid-image-name ng-model-options="{updateOn: 'default blur', debounce:{default: 500, blur: 0}}">
+            <p ng-show="updateCourseForm.imagename.$error.image" class="help-block">Dies ist keine Bezeichnung für eine Bilddatei.</p>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="InputCourseDescription" class="col-sm-2 control-label">Beschreibung</label>
+          <div class="col-sm-10">
+            <textarea class="form-control" id="InputCourseDescription" rows="3" ng-model="course.description"></textarea>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" ng-disabled="updateCourseForm.$invalid" class="btn btn-primary" ng-click="updateCourse()">speichern</button>
+          </div>
+        </div> 
+      </form>
+    </div>
+
+    <h3>Kursteile</h3>
+
+    <table class="table table-striped table-hover table-bordered" ng-if="course.courseparts.length">
+      <thead>
+        <tr>
+          <th>Nr.</th>
+          <th>Name</th>
+          <th>Bearbeiten</th> 
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="part in course.courseparts | orderBy:'order'" class="animate-tr" ng-animate-children>
+          <td class="col-sm-2">
+            <div class="btn-group" role="group">
+              <button ng-if="!$last" type="button" class="btn btn-default btn-sm" ng-click="movePartDown(part)">
+                <span class="glyphicon glyphicon-triangle-bottom"></span>
+              </button>
+              <button ng-if="!$first" type="button" class="btn btn-default btn-sm" ng-click="movePartUp(part)" style="margin-right:8px">
+                <span class="glyphicon glyphicon-triangle-top"></span>
+              </button>
+            </div>
+            {{ $index + 1 }})
+          </td>
+          <td class="col-sm-6">{{ part.title }}</td>
+          <td class="col-sm-4">
+            <a ui-sref="admin.kursteil({ coursepartid: part.id })"><button class="btn btn-primary" style="margin-right:10px" type="submit">Bearbeiten</button></a>
+            <button class="btn btn-danger" type="submit" ng-click="deletePart(part)">Löschen</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <p ng-if="!course.courseparts.length">Es wurden keine Kurseteile gefunden</p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="well">
+      <h3>Kursteil neu anlegen</h3>
+      <form name="createCoursepartForm" class="form-horizontal" novalidate>
+        <div class="form-group" ng-class="{ 'has-error' : createCoursepartForm.title.$invalid && !createCoursepartForm.title.$pristine }">
+          <label for="titleInput"  class="col-sm-2 control-label">Titel</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="titleInput" placeholder="Kursteiltitel" ng-model="newCoursepart.title" name="title" required ng-model-options="{updateOn: 'default blur', debounce:{default: 500, blur: 0}}" ng-maxlength=100>
+            <p ng-show="createCourseForm.title.$error.maxlength" class="help-block">Die maximale länge für Titel ist 100 Zeichen.</p>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="templateInput"  class="col-sm-2 control-label">Template</label>
+          <div class="col-sm-10">
+            <textarea class="form-control" id="templateInput" rows="3" ng-model="newCoursepart.template"></textarea>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-10">
+            <back-button></back-button>
+            <button type="submit" ng-disabled="createCoursepartForm.$invalid" class="btn btn-primary" ng-click="createPart()">speichern</button>
+          </div>
+        </div> 
+      </form>
+    </div>
+  </div>
+</div>

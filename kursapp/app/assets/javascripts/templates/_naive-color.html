@@ -1,0 +1,30 @@
+<div id="greedy" class="panel panel-info">
+  <div class="panel-heading">
+    <h3 class="panel-title">
+      <span class="glyphicon glyphicon-hand-right"></span>&nbsp;&nbsp;
+      Ausprobieren: minimales Färben auf die einfachste Weise
+    </h3>
+  </div>
+  <div class="panel-body">
+    <p>Prüfe für jede Zahl, angefangen bei 1, alle Möglichkeiten den Graphen mit dieser Anzahl Farben zu färben.</p>
+
+    <algo-controls algorithm="algo" speed="400"></algo-controls>
+
+    <div class="panel" ng-class="{'panel-default': !algo.isDone, 'panel-success': algo.isDone}">
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-sm-6">
+            <p ng-if="algo.stepNumber === 1">Zu überprüfen: 15 Möglichkeiten</p>
+            <p ng-if="algo.stepNumber === 1">Prüfe: {{ currentlyChecking }}-färbbarkeit</p>
+          </div>
+          <div class="col-sm-6">
+            <p ng-if="algo.stepNumber === 1">Minimale Färbung gefunden? <span class="text-danger"><strong>NEIN</strong></span></p>
+            <p ng-if="algo.stepNumber === 2">Minimale Färbung gefunden? <span class="text-success"><strong>JA</strong></span></p>
+          </div>
+        </div>
+        <div id="cy" class="cytoscape-md"></div>
+      </div>
+    </div>
+
+  </div>
+</div>

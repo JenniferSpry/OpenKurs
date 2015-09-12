@@ -1,0 +1,1 @@
+json.array! @courseparts, partial: 'coursepart', as: :coursepart

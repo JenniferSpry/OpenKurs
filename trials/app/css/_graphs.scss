@@ -1,0 +1,25 @@
+.cytoscape, #cy {
+  background-color: $gray-lighter;
+}
+
+.cytoscape-md {
+  background-color: $gray-lighter;
+  height: 500px;
+  width: 100%;
+}
+
+.cytoscape-sm {
+  background-color: $gray-lighter;
+  height: 300px;
+  width: 100%;
+}
+
+.cytoscape-sm-white {
+  background-color: white !important;
+}
+
+#greedy-coloured-cy {
+  background-color: $brand-primary;
+  height: 300px;
+  width: 100%;
+}

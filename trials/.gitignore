@@ -1,0 +1,9 @@
+/node_modules
+/layout
+/bootstrap
+/app/bower_components
+/app/files
+.css
+/.sass-cache
+/dist
+*.log

@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: One
+  course_id: 1
+  template: <div>content</div>
+  order: 0
+
+two:
+  title: Two
+  course_id: 1
+  template: <div>content</div>
+  order: 1
+
+three:
+  title: Three
+  course_id: 1
+  template: <div>content</div>
+  order: 2
+
+four:
+  title: Fours
+  course_id: 1
+  template: <div>content</div>
+  order: 3
